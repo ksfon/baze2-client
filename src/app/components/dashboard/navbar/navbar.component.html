@@ -10,16 +10,16 @@
     <ul class="navbar-nav mr-auto ml-3">
 
       <li class="nav-item" id="navItem1" [ngClass]="{'active': activeTab === 'navItem1'}">
-        <a class="nav-link" [routerLink]="['/dashboard/add-flight']" (click)="changeActiveTab($event)">Dodavanje letova</a>
+        <a class="nav-link" [routerLink]="['/dashboard/add-flight']" (click)="changeActiveTab($event)">Add flight</a>
       </li>
 
       <li class="nav-item" id="navItem2" [ngClass]="{'active': activeTab === 'navItem2'}">
-        <a class="nav-link" [routerLink]="['/dashboard/flightReservationUser']" (click)="changeActiveTab($event)">Rezervisi let User</a>
+        <a class="nav-link" [routerLink]="['/dashboard/flightReservationUser']" (click)="changeActiveTab($event)">Book a flight</a>
       </li>
-
+<!-- 
       <li class="nav-item" id="navItem3" [ngClass]="{'active': activeTab === 'navItem3'}">
         <a class="nav-link" [routerLink]="['/dashboard/flightReservationAdmin']" (click)="changeActiveTab($event)">Rezervisi let Admin</a>
-      </li>
+      </li> -->
 
     </ul>
 

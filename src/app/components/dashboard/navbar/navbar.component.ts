@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
-import {Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { MessageServiceService } from 'src/app/services/message-service.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { MessageServiceService } from 'src/app/services/message-service.service'
 export class NavbarComponent implements OnInit {
 
   subscription: Subscription;
-activeTab='navItem1';
+  activeTab = 'navItem1';
   constructor(private renderer: Renderer2, private el: ElementRef,
     private messageService: MessageServiceService) {
     this.subscription = this.messageService.getMessage().subscribe(message => {
@@ -28,9 +28,9 @@ activeTab='navItem1';
   ngOnInit() {
 
     this.renderer.setStyle(document.body, 'background-image',
-      'url(https://images.unsplash.com/photo-1483450388369-9ed95738483c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)');
+      'url(https://images.pexels.com/photos/55787/pexels-photo-55787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)');
 
-    this.renderer.setStyle(document.body, ' background-size', 'covers');
+    this.renderer.setStyle(document.body, ' background-size', 'cover');
   }
 
   changeActiveTab(event: any) {

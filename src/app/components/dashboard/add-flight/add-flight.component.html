@@ -1,0 +1,141 @@
+<div id="booking" class="section">
+	<div class="section-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="booking-cta">
+						<h1>Add new flight</h1>
+						<p></p>
+					</div>
+				</div>
+				<div class="col-md-7 col-md-offset-1">
+					<div class="booking-form">
+						<form [formGroup]="insertFlightForm" (ngSubmit)="onSubmit()">
+							<div class="form-group">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Flight from</span>
+										<input class="form-control" d="flightDestinationFrom"
+											formControlName="flightDestinationFrom" type="text"
+											placeholder="Enter city">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Flight to</span>
+										<input class="form-control" id="flightDestinationTo"
+											formControlName="flightDestinationTo" type="text" placeholder="Enter city">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Timestamp from</span>
+										<input class="form-control" class="form-control" id="flightTimestampFrom"
+											formControlName="flightTimestampFrom" type="date" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Timestamp to</span>
+										<input class="form-control" id="flightTimestampTo"
+											formControlName="flightTimestampTo" type="date" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Airplane name</span>
+										<select class="form-control" id="airplaneName" formControlName="airplaneName">
+											<option>Air serbia</option>
+											<option>Lufthansa</option>
+											<option>Sas</option>
+											<option>Wizz air</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Capacity</span>
+										<input class="form-control" id="airplaneCapacity"
+											formControlName="airplaneCapacity" type="text" required>
+									</div>
+								</div>
+
+
+							</div>
+							<!-- DIV ZA DODAVANJE KLASA AVIONA -->
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<span class="form-label">Flight category</span>
+										<select class="form-control" id="flightCategoryname"
+											formControlName="flightCategoryname">
+											<option>Economy class</option>
+											<option>Business class</option>
+											<option>First class</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<span class="form-label">Price</span>
+										<input class="form-control" id="flightCategoryPrice"
+											formControlName="flightCategoryPrice" type="text" required>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Capacity</span>
+										<input class="form-control" id="flightCategoryCapacity"
+											formControlName="flightCategoryCapacity" type="text" required>
+									</div>
+								</div>
+
+							</div>
+							<!-- 
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<span class="form-label">Flight category</span>
+										<select class="form-control" id="flightCategoryname"
+											formControlName="flightCategoryname">
+											<option>Economy class</option>
+											<option>Business class</option>
+											<option>First class</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<span class="form-label">Price</span>
+										<input class="form-control" id="flightCategoryPrice"
+											formControlName="flightCategoryPrice" type="text" required>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Capacity</span>
+										<input class="form-control" id="flightCategoryCapacity"
+											formControlName="flightCategoryCapacity" type="text" required>
+									</div>
+								</div>
+							</div>
+ -->
+							<div class="form-btn mt-2">
+								<button class="submit-btn">Add flight</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

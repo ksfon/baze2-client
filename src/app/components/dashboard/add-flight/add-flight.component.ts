@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageServiceService } from 'src/app/services/message-service.service';
-import * as $ from 'jquery';
 import { FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-add-flight',
   templateUrl: './add-flight.component.html',
@@ -9,13 +9,36 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AddFlightComponent implements OnInit {
 
- 
-  constructor(private messageService: MessageServiceService, private fb: FormBuilder) { }
+  insertFlightForm = this.fb.group({
+
+    flightDestinationFrom: ['', Validators.required],
+    flightDestinationTo: ['', Validators.required],
+    flightTimestampFrom: ['', Validators.required],
+    flightTimestampTo: ['', Validators.required],
+
+    airplaneName: ['', Validators.required],
+    airplaneCapacity: ['', Validators.required],
+
+    flightCategoryname: ['', Validators.required],
+    flightCategoryPrice: ['', Validators.required],
+    flightCategoryCapacity: ['', Validators.required]
+
+
+  });
+
+  newFlightCategory = false;
+  constructor(private messageServise: MessageServiceService,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
-    
+    this.messageServise.sendMessage('navItem1');
   }
 
+  onSubmit() {
 
+  }
 
+  addFlightCategory(event: MouseEvent) {
+    this.newFlightCategory = true;
+  }
 }
