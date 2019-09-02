@@ -1,0 +1,40 @@
+.container-fluid{
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.navbar-inverse {
+    background-color:#3199DA;
+    border-color:#3199DA;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color :white;
+    background-color: #fff;
+}
+
+
+.classCss{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent),
+    url("https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed;
+}
+
+.myClass{
+    height: 100x; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+}
+
+
