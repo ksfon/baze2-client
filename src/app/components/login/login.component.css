@@ -11,12 +11,17 @@
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background-color: #017199;
+    color:black;
+
+
   }
   
   .card-signin .card-title {
     margin-bottom: 2rem;
     font-weight: 300;
     font-size: 1.5rem;
+    color:black;
   }
   
   .card-signin .card-body {
@@ -34,6 +39,7 @@
     font-weight: bold;
     padding: 1rem;
     transition: all 0.2s;
+    background: #D4DBE3;
   }
   
   .form-label-group {

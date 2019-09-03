@@ -209,9 +209,6 @@
 .card{
 size:30px;
 }
-
-
-.search-for-flights{
-	color: white;
-	font-style: italic;
-}
+ .styleFlightInfo{
+     background-color:lightblue;
+ }

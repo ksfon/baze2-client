@@ -3,9 +3,10 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card card-signin my-5">
         <div class="card-body" *ngIf="signInCard">
-            <div>
-                <img src="/assets/airplane.png" width="140px" style="display: flex; justify-content: center;margin: auto;" alt="">
-              </div>
+          <div>
+            <img src="/assets/airplaneSpinnerSas.gif" width="140px"
+              style="display: flex; justify-content: center;margin: auto;" alt="">
+          </div>
           <h5 class="card-title text-center">Sign In</h5>
           <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-label-group">
@@ -16,7 +17,7 @@
               <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
                 formControlName="password">
             </div>
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+            <button class="btn btn-lg btn-primary btn-block text-uppercase " style="color: black" type="submit"
               [disabled]="!loginForm.valid">Sign in</button>
           </form>
           <hr class="my-4">
@@ -27,7 +28,7 @@
       <div class="alert  text-center" *ngIf="loginSuccessful && !signInCard">
         <div class="airplane-loader">
 
-          <img src="/assets/airplaneSpinner.gif" alt="">
+          <img src="/assets/airplaneSpinnerSas.gif" alt="">
 
         </div>
       </div>

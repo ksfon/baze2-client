@@ -9,36 +9,40 @@
 					</div>
 				</div>
 
-				<div class="col-md-7 col-md-offset-1">
-					<div class="booking-form">
-						<form>
+				<div class="col-md-7 col-md-offset-1" >
+					<div class="booking-form" *ngIf="showCard">
+						<form [formGroup]="bookAFlightForm" (ngSubmit)="onSubmit()">
+
+							<p>CHOOSE A FLIHT</p>
+							<hr>
 							<div class="form-group">
 								<div class="form-checkbox">
 									<label for="roundtrip">
 										<input type="radio" id="roundtrip" name="flight-type">
-										<span></span>Roundtrip
+										<span></span>Round trip
 									</label>
 									<label for="one-way">
 										<input type="radio" id="one-way" name="flight-type">
 										<span></span>One way
 									</label>
-									<label for="multi-city">
-										<input type="radio" id="multi-city" name="flight-type">
-										<span></span>Multi-City
-									</label>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flying from</span>
-										<input class="form-control" type="text" placeholder="City or airport">
+										<input class="form-control" id="flightDestinationFrom"
+											formContolName="flightDestinationFrom" type="text"
+											placeholder="City or airport">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Flyning to</span>
-										<input class="form-control" type="text" placeholder="City or airport">
+										<span class="form-label">Flying to</span>
+										<input class="form-control" id="flightDestinationTo"
+											formContolName="flightDestinationTo" type="text"
+											placeholder="City or airport">
 									</div>
 								</div>
 							</div>
@@ -46,58 +50,101 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Departing</span>
-										<input class="form-control" type="date" required>
+										<input class="form-control" id="flightTimestampFrom"
+											formContolName="flightTimestampFrom" type="date" required>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Returning</span>
-										<input class="form-control" type="date" required>
+										<input class="form-control" id="flightTimestampTo"
+											formContolName="flightTimestampTo" type="date" required>
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<span class="form-label">Adults (18+)</span>
-										<select class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<span class="form-label">Children (0-17)</span>
-										<select class="form-control">
-											<option>0</option>
-											<option>1</option>
-											<option>2</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<span class="form-label">Travel class</span>
-										<select class="form-control">
-											<option>Economy class</option>
-											<option>Business class</option>
-											<option>First class</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
+
+
+							<div class="row" style="justify-content: center">
 							</div>
 							<div class="form-btn">
-								<button class="submit-btn">Show flights</button>
+								<button class="btn-style" (click)="showFlightsCard($event)">Show flights</button>
+							</div>
+
+							<hr>
+							<div *ngIf="flightCard">
+								<p>ALL FLIGHTS</p>
+								<hr>
+
+
+
+								<div class="card" style="justify-content: center size:50px" *ngIf="economyClass">
+									<img src="../assets/ekonomskaKlasa.jpg" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">Economy class 200e</h5>
+
+										<p>1 x 23kg</p>
+										<p>Hand baggage</p>
+										<p>Refreshment</p>
+										<p>Web Check-in</p>
+
+										<button class="btn-style" (click)="economyClass($event)">Choose economy
+											class</button>
+									</div>
+								</div>
+
+								<div class="card" style="justify-content: center size:50px" *ngIf="businessClass">
+									<img src="../assets/biznisKlasa.jpg" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">Business class 500e</h5>
+
+										<p>1 x 23kg</p>
+										<p>Hand baggage</p>
+										<p>Refreshment</p>
+										<p>Web Check-in</p>
+
+										<button class="btn-style" (click)="economyClass($event)">Choose economy
+											class</button>
+									</div>
+								</div>
+								<div class="form-btn">
+									<button class="submit-btn">Make a reservation</button>
+								</div>
 							</div>
 						</form>
+
 					</div>
+					<div class="container  mt-5 " style="justify-content: right: 100px;" *ngIf="!showCard">
+
+							<img src="/assets/airplaneSpinnerSas.gif" alt="">
+							<div class="search-for-flights" style="margin-left: 200px">
+								Searching for flights...
+							</div>
+						</div>
 				</div>
+
+
+				
+
+
 			</div>
 		</div>
 	</div>
-</div>
+
+
+
+
+
+
+
+
+	<!-- <div class="col-md-5" style="margin-left: 200px">
+			<div class="form-group">
+				<span class="form-label">Travel class</span>
+				<select class="form-control">
+					<option (click)="changeClassToEconomy()">Economy class</option>
+					<option  (click)="changeClassToBusiness()">Business class</option>
+					<option  (click)="changeClassToFirstClass()">First class</option>
+				</select>
+				<span class="select-arrow"></span>
+			</div>
+		</div> -->
