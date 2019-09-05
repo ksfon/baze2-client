@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   });
 
   loginSuccessful = false;
-  signInCard = true;
+  logInCard = true;
   constructor(private fb: FormBuilder,
     private logInService: LogInServiceService,
     private route: ActivatedRoute,
@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let username = this.loginForm.get('username').value;
     let password = this.loginForm.get('password').value;
-
+// ZAKUCANO
     if (username === 'matija') {
       if (password === 'matija') {
         this.loginSuccessful = true;
-        this.signInCard = false;
-        setTimeout(() => this.router.navigate(['/dashboard/navbar']), 3000);
+        this.logInCard = false;
+       setTimeout(() => this.router.navigate(['/dashboard/navbar']), 3000);
       }
     }
   }

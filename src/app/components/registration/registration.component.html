@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body" *ngIf="signInCard">
+                    <div>
+                        <img src="/assets/airplaneSpinnerSas.gif" width="140px"
+                            style="display: flex; justify-content: center;margin: auto;" alt="">
+                    </div>
+                    <h5 class="card-title text-center">Registration </h5>
+                    <form class="form-signin" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-label-group">
+                            <input type="name" id="name" class="form-control" placeholder="Name" required
+                                formControlName="name">
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="username" id="username" class="form-control" placeholder="Username" required
+                                formControlName="username">
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="password" class="form-control" placeholder="Password" required
+                                formControlName="password">
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase " style="color: black"
+                            type="submit" [disabled]="!registrationForm.valid">Sign in</button>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="alert  text-center" *ngIf="signInSuccessful && !signInCard">
+                <div class="airplane-loader">
+
+                    <img src="/assets/airplaneSpinnerSas.gif" alt="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

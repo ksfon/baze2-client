@@ -10,6 +10,7 @@ import { FlightReservationUserComponent } from './components/dashboard/flight-re
 import { FlightReservationAdminComponent } from './components/dashboard/flight-reservation-admin/flight-reservation-admin.component';
 import { AddFlightComponent } from './components/dashboard/add-flight/add-flight.component';
 import { AllFlightsComponent } from './components/dashboard/all-flights/all-flights.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AllFlightsComponent } from './components/dashboard/all-flights/all-flig
     AddFlightComponent,
     FlightReservationUserComponent,
     FlightReservationAdminComponent,
-    AllFlightsComponent
+    AllFlightsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
