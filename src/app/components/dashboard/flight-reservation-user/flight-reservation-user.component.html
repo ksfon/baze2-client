@@ -9,11 +9,11 @@
 					</div>
 				</div>
 
-				<div class="col-md-7 col-md-offset-1" >
+				<div class="col-md-7 col-md-offset-1">
 					<div class="booking-form" *ngIf="showCard">
 						<form [formGroup]="bookAFlightForm" (ngSubmit)="onSubmit()">
 
-							
+
 							<div class="form-group">
 								<div class="form-checkbox">
 									<label for="roundtrip">
@@ -68,61 +68,21 @@
 							<div class="form-btn">
 								<button class="btn-style" (click)="showFlightsCard($event)">Show flights</button>
 							</div>
-
 							<hr>
-							<div *ngIf="flightCard">
-								<p>ALL FLIGHTS</p>
-								<hr>
-
-
-
-								<div class="card" style="justify-content: center size:50px" *ngIf="economyClass">
-									<img src="../assets/ekonomskaKlasa.jpg" class="card-img-top">
-									<div class="card-body">
-										<h5 class="card-title">Economy class 200e</h5>
-
-										<p>1 x 23kg</p>
-										<p>Hand baggage</p>
-										<p>Refreshment</p>
-										<p>Web Check-in</p>
-
-										<button class="btn-style" (click)="economyClass($event)">Choose economy
-											class</button>
-									</div>
-								</div>
-
-								<div class="card" style="justify-content: center size:50px" *ngIf="businessClass">
-									<img src="../assets/biznisKlasa.jpg" class="card-img-top">
-									<div class="card-body">
-										<h5 class="card-title">Business class 500e</h5>
-
-										<p>1 x 23kg</p>
-										<p>Hand baggage</p>
-										<p>Refreshment</p>
-										<p>Web Check-in</p>
-
-										<button class="btn-style" (click)="economyClass($event)">Choose economy
-											class</button>
-									</div>
-								</div>
-								<div class="form-btn">
-									<button class="submit-btn">Make a reservation</button>
-								</div>
-							</div>
 						</form>
 
 					</div>
 					<div class="container  mt-5 " style="justify-content: right: 100px;" *ngIf="!showCard">
 
-							<img src="/assets/airplaneSpinnerSas.gif" alt="">
-							<div class="search-for-flights" style="margin-left: 200px">
-								Searching for flights...
-							</div>
+						<img src="/assets/airplaneSpinnerSas.gif" alt="">
+						<div class="search-for-flights" style="margin-left: 200px">
+							Searching for flights...
 						</div>
+					</div>
 				</div>
 
 
-				
+
 
 
 			</div>
