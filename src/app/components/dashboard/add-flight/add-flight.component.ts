@@ -36,11 +36,31 @@ export class AddFlightComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.insertFlightForm.get('flightDestinationFrom').value);
-    
+    let from=this.insertFlightForm.get('flightDestinationFrom').value;
+    let to=this.insertFlightForm.get('flightDestinationTo').value;
+    let timestampFrom=this.insertFlightForm.get('flightTimestampFrom').value;
+    let timestampTo=this.insertFlightForm.get('flightTimestampTo').value;
 
+    let airplaneName=this.insertFlightForm.get('airplaneName').value;
+    let capacity=this.insertFlightForm.get('airplaneCapacity').value;
+
+    let catName=this.insertFlightForm.get('flightCategoryname').value;
+    let catPrice=this.insertFlightForm.get('flightCategoryPrice').value;
+    let catCapacity= this.insertFlightForm.get('flightCategoryCapacity').value;
+
+    console.log('VALUES FROM ADD FLIGHT FORM:', from, to, timestampFrom, timestampTo, airplaneName, 
+    capacity, catName, catPrice, catCapacity);
+    
   }
+
   addCategory(event: MouseEvent){
     this.addMoreCategories=true;
   }
+   getValue() {
+    var date = $('#datetimepicker1').data("DateTimePicker").date();
+    if( date ){
+      alert(date.unix());
+    }
+  }
 }
+
