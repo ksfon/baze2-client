@@ -11,6 +11,7 @@ import { FlightReservationAdminComponent } from './components/dashboard/flight-r
 import { AddFlightComponent } from './components/dashboard/add-flight/add-flight.component';
 import { AllFlightsComponent } from './components/dashboard/all-flights/all-flights.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, 
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
