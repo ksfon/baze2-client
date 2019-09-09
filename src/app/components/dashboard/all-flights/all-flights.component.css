@@ -212,3 +212,26 @@ size:30px;
  .styleFlightInfo{
      background-color:lightblue;
  }
+ .klasa{
+	 background-color:lightblue;
+ }
+ .klasa1{
+	 opacity:0.8;
+	 margin-top: 5px;
+	 margin-bottom: 5px;
+ }
+ .btnn-style{
+	color: #fff;
+	background-color: #4fa3e3;
+	font-weight: 200;
+	height: 40px;
+	font-size: 14px;
+	border: none;
+	width: 30%;
+	border-radius: 2px;
+	margin-top: 5px
+	
+}
+ .categoryClass{
+	 size: 100px;
+ }

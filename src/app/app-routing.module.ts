@@ -8,6 +8,7 @@ import { FlightReservationAdminComponent } from './components/dashboard/flight-r
 import { AddFlightComponent } from './components/dashboard/add-flight/add-flight.component';
 import { AllFlightsComponent } from './components/dashboard/all-flights/all-flights.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { BookAFlightComponent } from './components/dashboard/book-a-flight/book-a-flight.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent, children: [
       { path: 'add-flight', component: AddFlightComponent },
       { path: 'all-flights', component: AllFlightsComponent },
-      { path: 'flightReservationUser', component: FlightReservationUserComponent },
+      { path: 'book-a-flight', component: BookAFlightComponent },
+      { path: 'flightReservationUser', component: FlightReservationUserComponent},
       { path: 'flightReservationAdmin', component: FlightReservationAdminComponent },
       { path: 'navbar', component: AddFlightComponent },
       { path: '', component: AddFlightComponent }

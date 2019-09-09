@@ -14,7 +14,8 @@ export class RegistrationComponent implements OnInit {
   registrationForm = this.fb.group({
     name: ['', Validators.required],
     username: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
+    type: ['', Validators.required]
   });
 
 
@@ -27,13 +28,13 @@ export class RegistrationComponent implements OnInit {
     let name = this.registrationForm.get('name').value;
     let username = this.registrationForm.get('username').value;
     let password = this.registrationForm.get('password').value;
-
-    console.log('name', name, 'username', username, 'password', password);
+    let type=this.registrationForm.get('type').value;
+    console.log('name', name, 'username', username, 'password', password, 'type', type);
 
     //saveClient ruta
     //zakucane vrednosti-proba
 
-    if (name === 'matija' && username === 'matija' && password === 'matija') {
+    if (name === 'matija' && username === 'matija' && password === 'matija' && type==='admin') {
       this.signInSuccessful=true;
       this.signInCard=false;
       setTimeout(() => this.router.navigate(['/dashboard/navbar']), 3000);

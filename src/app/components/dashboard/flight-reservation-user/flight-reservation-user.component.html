@@ -1,109 +1,314 @@
-<div id="booking" class="section">
-	<div class="section-center">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="booking-cta">
-						<h1>Book your flight today</h1>
-						<p></p>
-					</div>
-				</div>
-
-				<div class="col-md-7 col-md-offset-1">
-					<div class="booking-form" *ngIf="showCard">
-						<form [formGroup]="bookAFlightForm" (ngSubmit)="onSubmit()">
-
-
-							<div class="form-group">
-								<div class="form-checkbox">
-									<label for="roundtrip">
-										<input type="radio" id="roundtrip" name="flight-type">
-										<span></span>Round trip
-									</label>
-									<label for="one-way">
-										<input type="radio" id="one-way" name="flight-type">
-										<span></span>One way
-									</label>
-								</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="booking-cta">
+				<h1>MAKE A RESERVATION</h1>
+				<p></p>
+			</div>
+		</div>
+		<div class="col-md-7 col-md-offset-1">
+			<div class="booking-form">
+				<form [formGroup]="makeReservationForm" (ngSubmit)="onSubmit()">
+					<div id="accordion">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne" style="color:#015E80">
+										Seat selection + Extra service
+									</button>
+								</h5>
 							</div>
 
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Flying from</span>
-										<input class="form-control" id="flightDestinationFrom"
-											formContolName="flightDestinationFrom" type="text"
-											placeholder="City or airport">
+							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+								data-parent="#accordion">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Seat row</span>
+												<select class="form-control" id="seatRow" formControlName="seatRow">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Seat number</span>
+												<select class="form-control" id="seatNumber"
+													formControlName="seatNumber">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+												</select>
+												<span class="select-arrow"></span>
+
+											</div>
+										</div>
+
+										<hr>
+										<i class="far fa-address-card" (click)="openExtraServiceCard()"
+											style="margin-bottom: 12px">Add extra service</i>
+										<div class="container" *ngIf="extraServiceCard">
+												<div>
+														<select class="custom-select">
+															<option *ngFor="let service of extraServicesArray"> 
+																{{service.extraServiceName}}, price {{service.extraServicePrice}}e
+															</option>
+														</select>
+					
+													</div>
+										</div>
+
+
+
+
+
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Flying to</span>
-										<input class="form-control" id="flightDestinationTo"
-											formContolName="flightDestinationTo" type="text"
-											placeholder="City or airport">
-									</div>
-								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Departing</span>
-										<input class="form-control" id="flightTimestampFrom"
-											formContolName="flightTimestampFrom" type="date" required>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Returning</span>
-										<input class="form-control" id="flightTimestampTo"
-											formContolName="flightTimestampTo" type="date" required>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="row" style="justify-content: center">
-							</div>
-							<div class="form-btn">
-								<button class="btn-style" (click)="showFlightsCard($event)">Show flights</button>
-							</div>
-							<hr>
-						</form>
-
-					</div>
-					<div class="container  mt-5 " style="justify-content: right: 100px;" *ngIf="!showCard">
-
-						<img src="/assets/airplaneSpinnerSas.gif" alt="">
-						<div class="search-for-flights" style="margin-left: 200px">
-							Searching for flights...
 						</div>
+						<div class="card">
+							<div class="card-header" id="headingTwo">
+								<h5 class="mb-0">
+									<button class="btn btn-link collapsed" data-toggle="collapse"
+										data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+										style="color:#015E80">
+										Passengers
+									</button>
+								</h5>
+							</div>
+
+							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+								data-parent="#accordion">
+								<div class="card-body">
+									<p style="color:#015E80; margin-left: 14px">BASIC INFO</p>
+									<div class="row">
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Title</span>
+												<select class="form-control" id="title" formControlName="title">
+													<option>Ms</option>
+													<option>Mrs</option>
+													<option>Miss</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">First name</span>
+												<input class="form-control" id="firstName" formControlName="firstName"
+													type="text" placeholder="First name" required>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Last name</span>
+												<input class="form-control" id="lastName" formControlName="lastName"
+													type="text" placeholder="Last name" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Date of birth</span>
+												<input class="form-control" id="dateOfBirth"
+													formContolName="dateOfBirth" type="date" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Sex</span>
+												<select class="form-control" id="sex" formControlName="sex">
+													<option>Male</option>
+													<option>Female</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+
+
+									</div>
+									<p style="color:#015E80; margin-left: 14px">CONTACT INFO</p>
+									<div class="row">
+
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Phone number</span>
+												<input class="form-control" id="phoneNumber"
+													formControlName="phoneNumber" type="text" placeholder="Phone number"
+													required>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Email</span>
+												<input class="form-control" id="email" formControlName="email"
+													type="text" placeholder="Email" required>
+											</div>
+										</div>
+										<i class="far fa-address-card" (click)="openDocumentCard()">Add travel
+											documents</i>
+										<div *ngIf="documentCard">
+											<div class="container">
+												<div class="col-md-12">
+													<div class="form-group">
+														<span class="form-label">Document name</span>
+														<input class="form-control" id="documentName"
+															formControlName="documentName" type="text"
+															placeholder="Document name" required>
+													</div>
+													<div class="form-group">
+														<span class="form-label">Document type</span>
+														<select class="form-control" id="documentType"
+															formControlName="documentType">
+															<option>National ID</option>
+															<option>Passport</option>
+														</select>
+														<span class="select-arrow"></span>
+													</div>
+													<div class="form-group">
+														<span class="form-label">Document number</span>
+														<input class="form-control" id="documentNumber"
+															formControlName="documentNumber" type="text"
+															placeholder="Document number" required>
+													</div>
+													<div class="form-group">
+														<span class="form-label">Expiration date</span>
+														<input class="form-control" id="expirationDate"
+															formControlName="expirationDate" type="date" required>
+													</div>
+													<div class="form-group">
+														<span class="form-label">Document number</span>
+														<input class="form-control" id="nationality"
+															formControlName="nationality" type="text"
+															placeholder="Nationality" required>
+													</div>
+													<div class="form-group">
+														<span class="form-label">Issuing country</span>
+														<input class="form-control" id="issuingCountry"
+															formControlName="issuingCountry" type="text"
+															placeholder="Issuing country" required>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingThree">
+								<h5 class="mb-0">
+									<button class="btn btn-link collapsed" data-toggle="collapse"
+										data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+										style="color:#015E80">
+										Payment
+									</button>
+								</h5>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+								data-parent="#accordion">
+								<div class="card-body">
+									<p style="color:#015E80; margin-left: 14px">PAYMENT DETAILS</p>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Email of the owner</span>
+												<input class="form-control" id="emailOfTheOwner"
+													formControlName="emailOfTheOwner" type="text"
+													placeholder="email of the owner" required>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Adress of the owner</span>
+												<input class="form-control" id="adressOfTheOwner"
+													formControlName="adressOfTheOwner" type="text"
+													placeholder="adress of the owner" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Postal code</span>
+												<input class="form-control" id="postalCode" formControlName="postalCode"
+													type="text" placeholder="postal code" required>
+											</div>
+										</div>
+
+									</div>
+
+									<p style="color:#015E80; margin-left: 14px">CARD DETAILS</p>
+
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Card type</span>
+												<select class="form-control" id="type" formControlName="type">
+													<option>Visa</option>
+													<option>Master card</option>
+													<option>American express</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Card number</span>
+												<input class="form-control" id="cardNumber" formControlName="cardNumber"
+													type="text" placeholder="card number" required>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Expiration date</span>
+												<input class="form-control" id="expirationdate"
+													formControlName="expirationdate" type="date" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Secret number</span>
+												<input class="form-control" id="secretNumber"
+													formControlName="secretNumber" type="text"
+													placeholder="secret number" required>
+											</div>
+										</div>
+										<button type="submit" class="submit-btn" style="size:100px">Make a
+											reservation</button>
+
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
 					</div>
-				</div>
 
-
-
-
-
+				</form>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-	<!-- <div class="col-md-5" style="margin-left: 200px">
-			<div class="form-group">
-				<span class="form-label">Travel class</span>
-				<select class="form-control">
-					<option (click)="changeClassToEconomy()">Economy class</option>
-					<option  (click)="changeClassToBusiness()">Business class</option>
-					<option  (click)="changeClassToFirstClass()">First class</option>
-				</select>
-				<span class="select-arrow"></span>
-			</div>
-		</div> -->
+</div>

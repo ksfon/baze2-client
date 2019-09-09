@@ -12,6 +12,7 @@ import { AddFlightComponent } from './components/dashboard/add-flight/add-flight
 import { AllFlightsComponent } from './components/dashboard/all-flights/all-flights.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { BookAFlightComponent } from './components/dashboard/book-a-flight/book-a-flight.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     FlightReservationUserComponent,
     FlightReservationAdminComponent,
     AllFlightsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    BookAFlightComponent
   ],
   imports: [
     BrowserModule,

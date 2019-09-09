@@ -106,7 +106,7 @@
 								<i class="fas fa-plus fa-10px" style="color:#4fa3e3; margin-right: 15px" (click)="onAddCategory()"></i>
 								<i class="fas fa-minus" style="color:#4fa3e3" (click)="onRemoveCategory()"></i>
 							</div>
-							<div class="row" *ngFor="let category of numberOfCategories">
+							<div class="row" *ngFor="let category of numberOfCategories; let i=index">
 								<div class="col-md-5">
 									<div class="form-group">
 										<span class="form-label">Flight category</span>

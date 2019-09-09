@@ -10,6 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AddFlightComponent implements OnInit {
 
   addMoreCategories = false;
+
   insertFlightForm = this.fb.group({
 
     flightDestinationFrom: ['', Validators.required],
@@ -23,8 +24,7 @@ export class AddFlightComponent implements OnInit {
     flightCategoryname: ['', Validators.required],
     flightCategoryPrice: ['', Validators.required],
     flightCategoryCapacity: ['', Validators.required]
-
-
+    
   });
   numberOfCategories :number[]=[];
   newFlightCategory = false;

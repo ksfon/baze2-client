@@ -10,7 +10,72 @@
                 </div>
 
 
-                <div class="col-md-7 col-md-offset-1">
+                <div class="col-md-7 col-md-offset-1 " *ngFor="let flight of allFlights">
+
+                    <div class="booking-form klasa1">
+
+                        <div class="row ">
+
+
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <p>{{flight.from}}</p>
+                                    <p>{{flight.timeFrom}}</p>
+                                </div>
+
+                            </div>
+                            <i class="fas fa-long-arrow-alt-right "></i>
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <p style="margin-left:200px">{{flight.to}}</p>
+                                    <p style="margin-left:200px">{{flight.timeTo}}</p>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <p>Available categories</p>
+                        <div class="container">
+                            <!-- <div class="" *ngFor="let category of flight.flightCategries">
+                                <div class="form-group">
+                                    <div>
+                                            <p>{{category.name}} price: {{category.price}}  capacity: {{category.capacity}} </p>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+
+                            <div class="container ">
+
+                                <div>
+                                    <select class="custom-select">
+                                        <option *ngFor="let category of flight.flightCategries"> {{category.name}}
+                                            price: {{category.price}}e capacity: {{category.capacity}} passengers</option>
+                                    </select>
+
+                                </div>
+                                <button class=" btnn-style" style="margin-left: 365px" (click)="makeAReservation()">Next</button>
+                            </div>
+                            <!-- <div class="card" style="" *ngFor="let category of flight.flightCategries">
+                                    <img src="/assets/biznisKlasa.jpg" class="card-img-top" *ngIf="category.name=='biznis klasa'" >
+                                    <img src="/assets/prvaKlasa.jpg" class="card-img-top" *ngIf="category.name=='prva klasa'">
+                                    <img src="/assets/ekonomskaKlasa.jpg" class="card-img-top" *ngIf="category.name=='ekonomska klasa'">
+                                    <div class="card-body">
+                                      <h5 class="card-title">{{category.name}}</h5>
+                                      <p class="card-text">Cena {{category.price}}</p>
+                                      <p class="card-text">Capacity {{category.capacity}}</p>
+                                      <a href="#" class="btn btn-primary">Choose</a>
+                                    </div>
+                                  </div> -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-7 col-md-offset-1">
                     <div class="booking-form ">
                         <div class="row">
                             <div class="col-md-6">
@@ -28,7 +93,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+
             </div>
-     </div>
+        </div>
+    </div>
 </div>
