@@ -16,12 +16,12 @@
 
                             <div class="form-group">
                                 <div class="form-checkbox">
-                                    <label for="roundtrip">
-                                        <input type="radio" id="roundtrip" name="flight-type">
+                                    <label for="roundTrip">
+                                        <input type="radio" id="roundtrip" name="roundTrip" formControlName="roundTrip" value="true">
                                         <span></span>Round trip
                                     </label>
-                                    <label for="one-way">
-                                        <input type="radio" id="one-way" name="flight-type">
+                                    <label for="roundTrip">
+                                        <input type="radio" id="one-way" name="roundTrip" formControlName="roundTrip" value="false">
                                         <span></span>One way
                                     </label>
                                 </div>
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="form-group" *ngIf="bookAFlightForm.value.roundTrip === true">
                                         <span class="form-label">Returning</span>
                                         <input class="form-control" id="flightTimestampTo"
                                             formContolName="flightTimestampTo" type="date" required>
@@ -80,11 +80,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
             </div>
         </div>
     </div>

@@ -47,12 +47,12 @@
 												<span class="form-label">Seat number</span>
 												<select class="form-control" id="seatNumber"
 													formControlName="seatNumber">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
+													<option>A</option>
+													<option>B</option>
+													<option>C</option>
+													<option>D</option>
+													<option>E</option>
+													<option>F</option>
 												</select>
 												<span class="select-arrow"></span>
 
@@ -63,14 +63,15 @@
 										<i class="far fa-address-card" (click)="openExtraServiceCard()"
 											style="margin-bottom: 12px">Add extra service</i>
 										<div class="container" *ngIf="extraServiceCard">
-												<div>
-														<select class="custom-select">
-															<option *ngFor="let service of extraServicesArray"> 
-																{{service.extraServiceName}}, price {{service.extraServicePrice}}e
-															</option>
-														</select>
-					
-													</div>
+											<div>
+												<select class="custom-select">
+													<option *ngFor="let service of extraServicesArray">
+														{{service.extraServiceName}}, price
+														{{service.extraServicePrice}}e
+													</option>
+												</select>
+
+											</div>
 										</div>
 
 
@@ -228,6 +229,8 @@
 							<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
 								data-parent="#accordion">
 								<div class="card-body">
+
+
 									<p style="color:#015E80; margin-left: 14px">PAYMENT DETAILS</p>
 									<div class="row">
 										<div class="col-md-6">
@@ -256,6 +259,10 @@
 										</div>
 
 									</div>
+
+
+
+
 
 									<p style="color:#015E80; margin-left: 14px">CARD DETAILS</p>
 

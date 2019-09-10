@@ -17,8 +17,7 @@ export class BookAFlightComponent implements OnInit {
     flightTimestampTo: ['', Validators.required],
     city: ['', Validators.required],
     airplaneName: ['', Validators.required],
-
-
+    roundTrip: ['false', Validators.required]
   })
 
   constructor(private messageService: MessageServiceService, private fb: FormBuilder,
@@ -27,7 +26,6 @@ export class BookAFlightComponent implements OnInit {
 
   ngOnInit() {
     this.messageService.sendMessage('navItem2');
-   
   }
 
   showFlightsCard(event: MouseEvent) {
@@ -35,9 +33,11 @@ export class BookAFlightComponent implements OnInit {
     
     this.showCard=false;
     console.log(this.showCard);
-    setTimeout(()=>{
-      this.router.navigate(['/dashboard/all-flights'])
-    },2000);
+    console.log(this.bookAFlightForm.value);
+    
+    // setTimeout(()=>{
+    //   this.router.navigate(['/dashboard/all-flights'])
+    // },2000);
   }
 
   addEconomyClass(event: MouseEvent) {

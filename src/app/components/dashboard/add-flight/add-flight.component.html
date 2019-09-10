@@ -17,16 +17,25 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flight from</span>
-										<input class="form-control" id="flightDestinationFrom"
-											formControlName="flightDestinationFrom" type="text"
-											placeholder="Enter city">
+										<div>
+											<select class="custom-select" id="flightDestinationFrom"
+												style="margin-top: 35px">
+												<option *ngFor="let city of citiesTo"> {{city}}</option>
+											</select>
+
+										</div>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flight to</span>
-										<input class="form-control" id="flightDestinationTo"
-											formControlName="flightDestinationTo" type="text" placeholder="Enter city">
+										<div>
+											<select class="custom-select" id="flightDestinationTo"
+												style="margin-top: 35px">
+												<option *ngFor="let city of citiesTo"> {{city}}</option>
+											</select>
+
+										</div>
 									</div>
 								</div>
 							</div>
@@ -50,11 +59,10 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Airplane name</span>
-										<select class="form-control" id="airplaneName" formControlName="airplaneName">
-											<option>Air serbia</option>
-											<option>Lufthansa</option>
-											<option>Sas</option>
-											<option>Wizz air</option>
+										<select class="form-control" id="airplaneName" formControlName="airplaneName"
+											(change)="onChange($event.target.value)">
+											<option *ngFor="let airplane of airplanes" [value]="airplane.name">
+												{{airplane.name}}</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
@@ -100,18 +108,20 @@
 									</div>
 								</div>
 							</div>
+
 							<!-- DIV ZA DODAVANJE KLASA AVIONA -->
-							
 							<div style="font-size: 35px; margin-left: 250px; ">
-								<i class="fas fa-plus fa-10px" style="color:#4fa3e3; margin-right: 15px" (click)="onAddCategory()"></i>
+								<i class="fas fa-plus fa-10px" style="color:#4fa3e3; margin-right: 15px"
+									(click)="onAddCategory()"></i>
 								<i class="fas fa-minus" style="color:#4fa3e3" (click)="onRemoveCategory()"></i>
 							</div>
+
+
 							<div class="row" *ngFor="let category of numberOfCategories; let i=index">
 								<div class="col-md-5">
 									<div class="form-group">
 										<span class="form-label">Flight category</span>
-										<select class="form-control" id="flightCategoryname"
-											formControlName="flightCategoryname">
+										<select class="form-control" id="category.name">
 											<option>Economy class</option>
 											<option>Business class</option>
 											<option>First class</option>
@@ -122,44 +132,13 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<span class="form-label">Price</span>
-										<input class="form-control" id="flightCategoryPrice"
-											formControlName="flightCategoryPrice" type="text" required>
+										<input class="form-control" id="category.price" type="text" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">Capacity</span>
-										<input class="form-control" id="flightCategoryCapacity"
-											formControlName="flightCategoryCapacity" type="text" required>
-									</div>
-								</div>
-							</div>
-
-							<div class="row" *ngIf="addMoreCategories">
-								<div class="col-md-5">
-									<div class="form-group">
-										<span class="form-label">Flight category</span>
-										<select class="form-control" id="flightCategoryname"
-											formControlName="flightCategoryname">
-											<option>Economy class</option>
-											<option>Business class</option>
-											<option>First class</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<span class="form-label">Price</span>
-										<input class="form-control" id="flightCategoryPrice"
-											formControlName="flightCategoryPrice" type="text" required>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<span class="form-label">Capacity</span>
-										<input class="form-control" id="flightCategoryCapacity"
-											formControlName="flightCategoryCapacity" type="text" required>
+										<input class="form-control" id="category.capacity" type="text" required>
 									</div>
 								</div>
 							</div>

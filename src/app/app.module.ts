@@ -13,6 +13,8 @@ import { AllFlightsComponent } from './components/dashboard/all-flights/all-flig
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BookAFlightComponent } from './components/dashboard/book-a-flight/book-a-flight.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ResponseInterceptor } from './interceptors/Response.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,12 @@ import { BookAFlightComponent } from './components/dashboard/book-a-flight/book-
     AppRoutingModule,
     ReactiveFormsModule, 
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
