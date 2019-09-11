@@ -61,6 +61,129 @@ export class CallBroker {
         return this.httpClient.post(this.urlHelper.generateNewSeatsRoute, data, {headers: headers});
     }
 
+    getFlights(city_from, city_to, timestamp_from) {
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+
+        const data = {
+            city_from: city_from,
+            city_to: city_to,
+            timestamp_from: timestamp_from
+        }
+        
+        return this.httpClient.post(this.urlHelper.getFlightsRoute, data, {headers: headers});
+    }
+
+    getSeatsAndExtraServices(flight_id, flight_category_id, airplane_id) {
+
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+
+        const data = {
+            flight_id: flight_id,
+            flight_category_id: flight_category_id,
+            airplane_id: airplane_id
+        }
+        
+        return this.httpClient.post(this.urlHelper.getSeatsAndExtraServicesRoute, data, {headers: headers});
+    }
+
+    createAReservation(client_id, flight_id, flight_category_id, date, extra_service) {
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+
+        const data = {
+            client_id: client_id,
+            flight_id: flight_id,
+            flight_category_id: flight_category_id,
+            date: date,
+            no_of_passengers: 1,
+            extra_services: [extra_service]
+        }
+        
+        return this.httpClient.post(this.urlHelper.addNewReservationRoute, data, {headers: headers});
+    }
+
+    addNewPassenger(title, first_name, last_name, date_of_birth, sex, phone_number, email, document_number, expiration_date, nationality, flight_id, flight_category_id, client_id) {
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+
+        const data = {
+            title: title,
+            first_name: first_name,
+            last_name: last_name,
+            date_of_birth: date_of_birth,
+            sex: sex,
+            phone_number: phone_number,
+            email: email,
+            document: {
+                document_type_id: 1,
+                issuing_country_id: 1,
+                document_number: document_number,
+                expiration_date: expiration_date,
+                nationality: nationality
+            },
+            client_id: client_id,
+            flight_id: flight_id,
+            flight_category_id: flight_category_id,
+        }
+        
+        return this.httpClient.post(this.urlHelper.addNewPassengerRoute, data, {headers: headers});
+    }
+
+    passengerSits(seat_id, client_id, flight_id, flight_category_id, passenger_id) {
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+
+        const data = {
+            seat_id: seat_id,
+            flight_id: flight_id,
+            flight_category_id: flight_category_id,
+            client_id: client_id,
+            passenger_id: passenger_id
+        }
+        
+        return this.httpClient.post(this.urlHelper.passengerSitsRoute, data, {headers: headers});
+    }
+
+    addNewPaymentCard(client_id, card_number, expiration_date, secret_number, type) {
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+
+        const data = {
+            client_id: client_id,
+            card_number: card_number,
+            expiration_date: expiration_date,
+            secret_number: secret_number,
+            type: type
+        }
+        
+        return this.httpClient.post(this.urlHelper.addNewPaymentCardRoute, data, {headers: headers});
+    }
+
+    addNewPayment(flight_id, flight_category_id, client_id, payment_card_id, email_of_the_owner, address_of_the_owner, postal_code) {
+        const headers = new HttpHeaders();
+
+        headers.append('Content-Type', 'application/json');
+        const data = {
+            flight_id: flight_id,
+            flight_category_id: flight_category_id,
+            reservation_client_id: client_id,
+            payment_card_id: payment_card_id,
+            email_of_the_owner: email_of_the_owner,
+            address_of_the_owner: address_of_the_owner,
+            postal_code: postal_code,
+            country_id: 1
+        }
+        
+        return this.httpClient.post(this.urlHelper.addNewPaymentRoute, data, {headers: headers});
+    }
     // getAllSentRequests(){
     //     const headers = new HttpHeaders();
 

@@ -17,10 +17,10 @@ import { prepareSyntheticListenerName } from '@angular/compiler/src/render3/util
 export class AddFlightComponent implements OnInit {
 
   addMoreCategories = false;
-
-  
-  citiesFrom: string[] = ['Beograd', 'Berlin', 'Dubai', 'Amsterdam'];
-  citiesTo: string[] = ['Berlin', 'Amsterdam', 'Berlin', 'Bec'];
+  addBusinessClassForm = false;
+  addFirstClassForm=false;
+  citiesFrom: string[] = [];
+  citiesTo: string[] = [];
 
 
 
@@ -28,13 +28,25 @@ export class AddFlightComponent implements OnInit {
 
     flightDestinationFrom: ['', Validators.required],
     flightDestinationTo: ['', Validators.required],
+
     flightTimestampFrom: ['', Validators.required],
     flightTimestampTo: ['', Validators.required],
+
     airplaneName: ['', Validators.required],
     airplaneCapacity: ['', Validators.required],
+
     flightCategoryname: ['', Validators.required],
     flightCategoryPrice: ['', Validators.required],
-    flightCategoryCapacity: ['', Validators.required]
+    flightCategoryCapacity: ['', Validators.required],
+
+    flightCategorynameBusiness: ['', Validators.required],
+    flightCategoryPriceBusiness: ['', Validators.required],
+    flightCategoryCapacityBusiness: ['', Validators.required],
+
+    flightCategorynameFirst: ['', Validators.required],
+    flightCategoryPriceFirst: ['', Validators.required],
+    flightCategoryCapacityFirst: ['', Validators.required]
+
   });
 
   //niz modela sa tri polja - name, price, category
@@ -56,9 +68,20 @@ export class AddFlightComponent implements OnInit {
   ngOnInit() {
     this.airplanes = JSON.parse(localStorage.getItem('airplanes'));
     this.messageServise.sendMessage('navItem1');
+    this.initializeCities();
   }
 
+  initializeCities() {
+    const cities = JSON.parse(localStorage.getItem('cities'));
+    for (const city of cities) {
+      this.citiesFrom.push(city.city_name);
+      this.citiesTo.push(city.city_name);
+    }
+  }
+
+
   onSubmit() {
+
 
     let from = this.insertFlightForm.get('flightDestinationFrom').value;
     let to = this.insertFlightForm.get('flightDestinationTo').value;
@@ -84,6 +107,9 @@ export class AddFlightComponent implements OnInit {
     let catPrice = this.insertFlightForm.get('flightCategoryPrice').value;
     let catCapacity = this.insertFlightForm.get('flightCategoryCapacity').value;
 
+
+
+    
     const flightCategory = {
       name: catName,
       price: catPrice,
@@ -124,6 +150,12 @@ export class AddFlightComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("airplaneCapacity")).value = this.airplane_capacity + '';
   }
 
+  addBusinessClass() {
+    this.addBusinessClassForm = true;
+  }
 
+  addFirstClass(){
+    this.addFirstClassForm=true;
+  }
 }
 

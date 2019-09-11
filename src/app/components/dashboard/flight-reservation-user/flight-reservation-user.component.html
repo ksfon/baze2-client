@@ -19,30 +19,22 @@
 									</button>
 								</h5>
 							</div>
-
 							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
 								data-parent="#accordion">
 								<div class="card-body">
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-12">
 											<div class="form-group">
-												<span class="form-label">Seat row</span>
-												<select class="form-control" id="seatRow" formControlName="seatRow">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
-													<option>7</option>
-													<option>8</option>
-													<option>9</option>
-													<option>10</option>
+												<span class="form-label">Seat</span>
+												<select class="form-control" id="seat" formControlName="seat">
+													<option *ngFor='let seat of seats; let i = index' [value]="seat.seat_id">
+														{{seat.seat}}
+													</option>
 												</select>
 												<span class="select-arrow"></span>
 											</div>
 										</div>
-										<div class="col-md-6">
+										<!-- <div class="col-md-6">
 											<div class="form-group">
 												<span class="form-label">Seat number</span>
 												<select class="form-control" id="seatNumber"
@@ -55,29 +47,21 @@
 													<option>F</option>
 												</select>
 												<span class="select-arrow"></span>
-
 											</div>
-										</div>
-
+										</div> -->
 										<hr>
 										<i class="far fa-address-card" (click)="openExtraServiceCard()"
 											style="margin-bottom: 12px">Add extra service</i>
 										<div class="container" *ngIf="extraServiceCard">
-											<div>
-												<select class="custom-select">
-													<option *ngFor="let service of extraServicesArray">
+											<div class="form-group">
+												<select class="custom-select" formControlName="extraServiceId" id="extraServiceId">
+													<option *ngFor="let service of extraServicesArray" [value]="service.extraServiceId">
 														{{service.extraServiceName}}, price
 														{{service.extraServicePrice}}e
 													</option>
 												</select>
-
 											</div>
 										</div>
-
-
-
-
-
 									</div>
 								</div>
 							</div>
@@ -166,7 +150,8 @@
 													type="text" placeholder="Email" required>
 											</div>
 										</div>
-										<i class="far fa-address-card" (click)="openDocumentCard()">Add travel
+										<i class="far fa-address-card" (click)="openDocumentCard()"
+											style="margin-bottom: 10px">Add travel
 											documents</i>
 										<div *ngIf="documentCard">
 											<div class="container">
@@ -198,7 +183,7 @@
 															formControlName="expirationDate" type="date" required>
 													</div>
 													<div class="form-group">
-														<span class="form-label">Document number</span>
+														<span class="form-label">Nationality</span>
 														<input class="form-control" id="nationality"
 															formControlName="nationality" type="text"
 															placeholder="Nationality" required>
@@ -212,6 +197,9 @@
 												</div>
 											</div>
 										</div>
+										<button type="submit" (click)="makeAReservation()" class="submit-btn"
+											style="size:80px;margin-left: 80px;margin-right: 80px">Make a
+											reservation</button>
 									</div>
 								</div>
 							</div>
@@ -261,59 +249,59 @@
 									</div>
 
 
+									<button class="submit-btn" style="size:60px;margin-bottom: 15px"
+										(click)=openPaymentCard()>Add payment card</button>
+
+									<div *ngIf="addPaymentCard">
+
+										<p style="color:#015E80; margin-left: 14px">CARD DETAILS</p>
 
 
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<span class="form-label">Card type</span>
+													<select class="form-control" id="type" formControlName="type">
+														<option>Visa</option>
+														<option>Master card</option>
+														<option>American express</option>
+													</select>
+													<span class="select-arrow"></span>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<span class="form-label">Card number</span>
+													<input class="form-control" id="cardNumber"
+														formControlName="cardNumber" type="text"
+														placeholder="card number" required>
+												</div>
+											</div>
 
-									<p style="color:#015E80; margin-left: 14px">CARD DETAILS</p>
-
-
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Card type</span>
-												<select class="form-control" id="type" formControlName="type">
-													<option>Visa</option>
-													<option>Master card</option>
-													<option>American express</option>
-												</select>
-												<span class="select-arrow"></span>
+											<div class="col-md-6">
+												<div class="form-group">
+													<span class="form-label">Expiration date</span>
+													<input class="form-control" id="expirationdate"
+														formControlName="expirationdate" type="date" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<span class="form-label">Secret number</span>
+													<input class="form-control" id="secretNumber"
+														formControlName="secretNumber" type="text"
+														placeholder="secret number" required>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Card number</span>
-												<input class="form-control" id="cardNumber" formControlName="cardNumber"
-													type="text" placeholder="card number" required>
-											</div>
-										</div>
-
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Expiration date</span>
-												<input class="form-control" id="expirationdate"
-													formControlName="expirationdate" type="date" required>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Secret number</span>
-												<input class="form-control" id="secretNumber"
-													formControlName="secretNumber" type="text"
-													placeholder="secret number" required>
-											</div>
-										</div>
-										<button type="submit" class="submit-btn" style="size:100px">Make a
-											reservation</button>
+										<button class="submit-btn" style="size:60px;margin-bottom: 15px"
+										(click)=pay()>Pay</button>
 
 									</div>
-
-
 								</div>
 							</div>
 						</div>
-
 					</div>
-
 				</form>
 			</div>
 		</div>

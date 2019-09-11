@@ -198,3 +198,15 @@
 	font-size: 22px;
 	color: #191a1e;
 }
+.btnn-style{
+	color: #fff;
+	background-color: #4fa3e3;
+	font-weight: 200;
+	height: 40px;
+	font-size: 14px;
+	border: none;
+	width: 30%;
+	border-radius: 2px;
+	margin-top: 5px
+	
+}

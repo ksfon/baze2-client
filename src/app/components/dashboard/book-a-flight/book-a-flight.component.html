@@ -13,41 +13,107 @@
                     <div class="booking-form" *ngIf="showCard">
                         <form [formGroup]="bookAFlightForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
+
+
+                                <div class="row">
+                                    <div class="col-md-6" style="margin-left: 130px">
+                                        <div class="form-group">
+                                            <span class="form-label">Round trip/ one way</span>
+                                            <select class="form-control" id="roundOneWay" formControlName="roundOneWay">
+                                                <option>Round trip</option>
+                                                <option>One way</option>
+
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flight from</span>
+                                            <input class="form-control" id="flightDestinationFrom"
+                                                formControlName="flightDestinationFrom" type="text"
+                                                placeholder="Enter city">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flight to</span>
+                                            <input class="form-control" id="flightDestinationTo"
+                                                formControlName="flightDestinationTo" type="text"
+                                                placeholder="Enter city">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Departing</span>
+                                            <input class="form-control" id="flightTimestampFrom"
+                                                formControlName="flightTimestampFrom" type="date"
+                                                placeholder="departing">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Returning</span>
+                                            <input class="form-control" id="flightTimestampTo"
+                                                formControlName="flightTimestampTo" type="date" placeholder="returning">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+                            <!-- <div class="form-group">
                                 <div class="form-checkbox">
-                                    <label for="roundTrip">
-                                        <input type="radio" id="roundtrip" name="roundTrip" formControlName="roundTrip" [value]="true">
+                                    <label for="roundtrip">
+                                        <input type="radio" formContolName="roundTrip" id="roundtrip" name="flight-type">
                                         <span></span>Round trip
                                     </label>
-                                    <label for="roundTrip">
-                                        <input type="radio" id="one-way" name="roundTrip" formControlName="roundTrip" [value]="false">
+                                    <label for="one-way">
+                                        <input type="radio"  formContolName="oneWay" id="one-way" name="flight-type">
                                         <span></span>One way
                                     </label>
                                 </div>
-                            </div>
-
-                            <div class="row form-group">
+                          
+                        
+                            </div>> 
+                          
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <span class="form-label" for="flightDestinationFrom">Flying from</span>
-                                        <input 
-                                        formContolName="flightDestinationFrom"
-                                        type="text"
-                                        class="form-control" 
-                                        id="flightDestinationFrom"
-                                        placeholder="City or airport"
-                                        required>
+                                        <span class="form-label">Flying from</span>
+                                        <input class="form-control" id="flightDestinationFrom"
+                                            formContolName="flightDestinationFrom" type="text"
+                                            placeholder="City or airport">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <span class="form-label" for="flightDestinationTo">Flying to</span>
+                                        <span class="form-label">Flying to</span>
                                         <input class="form-control" id="flightDestinationTo"
                                             formContolName="flightDestinationTo" type="text"
                                             placeholder="City or airport">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row form-group">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <span class="form-label">Departing</span>
@@ -56,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group" *ngIf="bookAFlightForm.value.roundTrip === true">
+                                    <div class="form-group">
                                         <span class="form-label">Returning</span>
                                         <input class="form-control" id="flightTimestampTo"
                                             formContolName="flightTimestampTo" type="date" required>
@@ -68,12 +134,18 @@
                             <div class="row" style="justify-content: center">
                             </div>
                             <div class="form-btn">
-                                <button class="btn-style" (click)="showFlightsCard($event)">Show flights</button>
+                                <button  type="submit" class="submit-btn" >Show flights</button>
                             </div>
                             <hr>
+                       -->
+
+                            <div class="form-btn">
+                                <button type="submit" class="submit-btn">Show flights</button>
+                            </div>
                         </form>
+
                     </div>
-                    <div class="container  mt-5 " style="justify-content: right: 100px;" *ngIf="!showCard">
+                    <div class="container mt-5 " style="justify-content: right: 100px;" *ngIf="!showCard">
 
                         <img src="/assets/airplaneSpinnerSas.gif" alt="">
                         <div class="search-for-flights" style="margin-left: 200px">
@@ -81,18 +153,13 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
             </div>
         </div>
     </div>
-    <!-- <div class="col-md-5" style="margin-left: 200px">
-                <div class="form-group">
-                    <span class="form-label">Travel class</span>
-                    <select class="form-control">
-                        <option (click)="changeClassToEconomy()">Economy class</option>
-                        <option  (click)="changeClassToBusiness()">Business class</option>
-                        <option  (click)="changeClassToFirstClass()">First class</option>
-                    </select>
-                    <span class="select-arrow"></span>
-                </div>
-            </div> -->
-</div>>
+
+</div>

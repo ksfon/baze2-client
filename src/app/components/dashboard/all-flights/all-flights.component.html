@@ -20,7 +20,7 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <p>{{flight.from}}</p>
-                                    <p>{{flight.timeFrom}}</p>
+                                    <p>{{flight.timeFrom | date}}</p>
                                 </div>
 
                             </div>
@@ -28,7 +28,7 @@
                             <div class="col-md-6">
                                 <div class="form-group ">
                                     <p style="margin-left:200px">{{flight.to}}</p>
-                                    <p style="margin-left:200px">{{flight.timeTo}}</p>
+                                    <p style="margin-left:150px">{{flight.timeTo | date}}</p>
                                 </div>
                             </div>
 
@@ -57,7 +57,7 @@
                                     </select>
 
                                 </div>
-                                <button class=" btnn-style" style="margin-left: 365px" (click)="makeAReservation()">Next</button>
+                                <button class=" btnn-style" style="margin-left: 365px" (click)="makeAReservation(flight)">Next</button>
                             </div>
                         </div>
 

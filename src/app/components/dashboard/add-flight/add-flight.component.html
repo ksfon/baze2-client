@@ -74,23 +74,19 @@
 											formControlName="airplaneCapacity" type="text" required>
 									</div>
 								</div>
-
-
 							</div>
-
-
 
 							<div class="row">
 								<div class="col-md-5">
 									<div class="form-group">
 										<span class="form-label">Flight category</span>
-										<select class="form-control" id="flightCategoryname"
-											formControlName="flightCategoryname">
+
+										<select class="form-control" id="flightCategorynameBusiness"
+											formControlName="flightCategflightCategorynameBusinessoryname"
+											disabled="true">
 											<option>Economy class</option>
-											<option>Business class</option>
-											<option>First class</option>
 										</select>
-										<span class="select-arrow"></span>
+
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -108,40 +104,119 @@
 									</div>
 								</div>
 							</div>
+							<hr>
 
 							<!-- DIV ZA DODAVANJE KLASA AVIONA -->
-							<div style="font-size: 35px; margin-left: 250px; ">
+
+							<!-- <div style="font-size: 35px; margin-left: 250px; ">
 								<i class="fas fa-plus fa-10px" style="color:#4fa3e3; margin-right: 15px"
 									(click)="onAddCategory()"></i>
 								<i class="fas fa-minus" style="color:#4fa3e3" (click)="onRemoveCategory()"></i>
-							</div>
+							</div> -->
 
 
-							<div class="row" *ngFor="let category of numberOfCategories; let i=index">
+							<!-- <div class="row" *ngFor="let category of numberOfCategories">
+
+
 								<div class="col-md-5">
 									<div class="form-group">
 										<span class="form-label">Flight category</span>
-										<select class="form-control" id="category.name">
-											<option>Economy class</option>
-											<option>Business class</option>
-											<option>First class</option>
+										<select class="form-control" id="catName">
+											<option value="Economy class">Economy class</option>
+											<option value="Business class">Business class</option>
+											<option value="First class">First class</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
 								</div>
+
+
 								<div class="col-md-4">
 									<div class="form-group">
 										<span class="form-label">Price</span>
-										<input class="form-control" id="category.price" type="text" required>
+										<input class="form-control" type="text" required>
 									</div>
 								</div>
+
+
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">Capacity</span>
-										<input class="form-control" id="category.capacity" type="text" required>
+										<input class="form-control" type="text" required>
 									</div>
 								</div>
-							</div>
+
+
+							</div> -->
+
+
+
+							<button class=" btnn-style" style="margin-bottom: 10px" (click)="addBusinessClass()">Add
+								business class</button>
+						
+								<div class="row" *ngIf="addBusinessClassForm">
+									<div class="col-md-5">
+										<div class="form-group">
+											<span class="form-label">Flight category</span>
+
+											<select class="form-control" id="flightCategorynameBusiness"
+												formControlName="flightCategflightCategorynameBusinessoryname"
+												disabled="true">
+												<option>Business class</option>
+											</select>
+
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<span class="form-label">Price</span>
+											<input class="form-control" id="flightCategoryPriceBusiness"
+												formControlName="flightCategoryPriceBusiness" type="text" required>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<span class="form-label">Capacity</span>
+											<input class="form-control" id="flightCategoryCapacityBusiness"
+												formControlName="flightCategoryCapacityBusiness" type="text" required>
+										</div>
+									</div>
+								</div>
+
+
+									<hr>
+							<button class=" btnn-style" style="margin-bottom: 10px;" (click)="addFirstClass()">Add first class</button>
+							
+								<div class="row" *ngIf="addFirstClassForm">
+									<div class="col-md-5">
+										<div class="form-group">
+											<span class="form-label">Flight category</span>
+
+											<select class="form-control" id="flightCategorynameBusiness"
+												formControlName="flightCategflightCategorynameBusinessoryname"
+												disabled="true">
+												<option>First class</option>
+											</select>
+
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<span class="form-label">Price</span>
+											<input class="form-control" id="flightCategoryPriceBusiness"
+												formControlName="flightCategoryPriceBusiness" type="text" required>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<span class="form-label">Capacity</span>
+											<input class="form-control" id="flightCategoryCapacityBusiness"
+												formControlName="flightCategoryCapacityBusiness" type="text" required>
+										</div>
+									</div>
+								</div>
+							
+
 							<div class="form-btn mt-2">
 								<button type="submit" class="submit-btn">Add flight</button>
 							</div>
